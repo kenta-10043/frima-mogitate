@@ -4,11 +4,23 @@
 @endsection
 
 @section('content')
-    @foreach ($products as $product)
-        <p>{{ $product->name }}</p>
-        <p>{{ $product->price }}</p>
-        <p>{{ $product->image }}</p>
+    <aside>
+        <form action="{{ route('products.search') }}" method="get">
+            <input type="text" name="keyword" value="{{ $keyword ?? '' }}" placeholder="商品名で検索">
+            <button type="submit">検索</button>
+        </form>
+    </aside>
+    <div class="products__card">
+        @foreach ($products as $product)
+            <img class="products__card__image" src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+            <div class="products__card__contents">
+                <p class="products__card__inner">{{ $product->name }}</p>
+                <p class="products__card__inner">{{ '￥' . $product->price }}</p>
+            </div>
+    </div>
     @endforeach
+    </div>
+    {{ $products->links() }}
 @endsection
 
 

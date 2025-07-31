@@ -11,24 +11,42 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = Product::paginate(6);
         return view('index', compact('products'));
     }
 
     public function register()
+
     {
         return view('register');
     }
 
     public function store(ProductRequest $request)
     {
-        $product = $request->only([
-            'name',
-            'price',
-            'image',
-            'description',
+        $data = $request->validated();
+
+        $product = Product::create([
+            'name' => $data['name'],
+            'price' => $data['price'],
+            'image' => $data['image'],
+            'description' => $data['description'],
         ]);
-        Product::create($product);
+        $imagePath = $request->file('image')->store('products', 'public');
+
+        $product->seasons()->attach($data['seasons']);
+
         return redirect(Route('index'));
+    }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->input('keyword', '');
+        if ($request->filled('keyword')) {
+
+            $products = Product::where('name', 'LIKE', '%' . $keyword . '%')->paginate(6)->appends($request->all());
+            return view('index', compact('products', 'keyword'));
+        }
+        $products = Product::paginate(6);
+        return view('index', compact('products', 'keyword'));
     }
 }

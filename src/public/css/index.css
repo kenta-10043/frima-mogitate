@@ -1,0 +1,37 @@
+
+.products__card{
+    /* width: 374px;
+    height: 350px;
+    opacity: 1;
+    border-radius: 5px; */
+}
+
+
+
+.products__card__image{
+    width: 374px;
+    height: 350px;
+    opacity: 1;
+    border-radius: 5px;
+    background-size: auto;
+}
+.products__card__contents {
+    display: flex;
+    justify-content: space-between;
+    width: 374px;
+    height: 69px;
+}
+
+.products__card__inner{
+margin: 0 20px;
+
+
+}
+.products__card__price{
+
+}
+
+svg.w-5.h-5 {
+    width: 30px;
+    height: 30px;
+}
