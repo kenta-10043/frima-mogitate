@@ -18,3 +18,6 @@ Route::get('/', [ProductController::class, 'index'])->name('index');
 Route::get('/products/register', [ProductController::class, 'register'])->name('products.register');
 Route::post('/products/register', [ProductController::class, 'store'])->name('products.store');
 Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
+Route::get('/products/{productId}', [ProductController::class, 'show'])->name('products.show');
+Route::put('/products/{productId}/update', [ProductController::class, 'update'])->name('products.update');
+Route::delete('/products/{productId}/delete', [ProductController::class, 'destroy'])->name('products.destroy');

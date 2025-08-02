@@ -1,0 +1,30 @@
+.products__card__image {
+    width: 374px;
+    height: 350px;
+    opacity: 1;
+    border-radius: 5px;
+    background-size: auto;
+}
+
+.products__card__contents {
+    display: flex;
+    justify-content: space-between;
+    width: 374px;
+    height: 69px;
+}
+
+.products__card__inner {
+    margin: 0 20px;
+
+
+}
+
+.error-alert{
+    color: red;
+}
+
+.product__card__delete{
+    border: none;
+    background: none;
+    padding: 0;
+}

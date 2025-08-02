@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\ProductSeason;
+use App\Models\Season;
 use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
@@ -35,7 +35,7 @@ class ProductController extends Controller
 
         $product->seasons()->attach($data['seasons']);
 
-        return redirect(Route('index'));
+        return redirect(route('index'));
     }
 
     public function search(Request $request)
@@ -48,5 +48,32 @@ class ProductController extends Controller
         }
         $products = Product::paginate(6);
         return view('index', compact('products', 'keyword'));
+    }
+
+    public function show($productId)
+    {
+        $product = Product::with('seasons')->findOrFail($productId);
+        $allSeasons = Season::all();
+        return view('show', compact('product', 'allSeasons'));
+    }
+
+    public function update(ProductRequest $request, $productId)
+    {
+
+        $product = Product::findOrFail($productId);
+        $data = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('products', 'public');
+            $data['image'] = $path;
+        }
+        $product->update($data);
+
+        return redirect(route('index'));
+    }
+    public function destroy(Request $request, $productId)
+    {
+        Product::findOrFail($productId)->delete();
+        return redirect(route('index'));
     }
 }

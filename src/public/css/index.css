@@ -1,11 +1,38 @@
-
-.products__card{
-    /* width: 374px;
-    height: 350px;
-    opacity: 1;
-    border-radius: 5px; */
+.subheading{
+    display: flex;
+    justify-content: space-between;
 }
 
+.subheading__tittle{
+    margin: 0 20px;
+}
+
+.subheading__button{
+    margin: 0 20px;
+}
+
+
+.main__contents{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    width: 100%;
+}
+
+
+
+
+.products__card{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+}
+
+.products__card__link{
+    text-decoration: none;
+    color: black;
+}
 
 
 .products__card__image{
