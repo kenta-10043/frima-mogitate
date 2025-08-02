@@ -55,3 +55,6 @@ yarn.lock
 # -----------------------------
 .DS_Store
 Thumbs.db
+
+# Windowsの代替データストリームを無視
+*:Zone.Identifier

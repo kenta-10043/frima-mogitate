@@ -24,6 +24,8 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $data = $request->validated();
+        $imagePath = $request->file('image')->store('products', 'public');
+        $data['image'] = $imagePath;
 
         $product = Product::create([
             'name' => $data['name'],
@@ -31,7 +33,7 @@ class ProductController extends Controller
             'image' => $data['image'],
             'description' => $data['description'],
         ]);
-        $imagePath = $request->file('image')->store('products', 'public');
+
 
         $product->seasons()->attach($data['seasons']);
 
@@ -41,13 +43,26 @@ class ProductController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->input('keyword', '');
+        $sort = $request->input('sort', '');
+
+        $query = Product::query();
+
         if ($request->filled('keyword')) {
 
-            $products = Product::where('name', 'LIKE', '%' . $keyword . '%')->paginate(6)->appends($request->all());
-            return view('index', compact('products', 'keyword'));
+            $query->where('name', 'LIKE', '%' . $keyword . '%');
         }
-        $products = Product::paginate(6);
-        return view('index', compact('products', 'keyword'));
+
+        switch ($sort) {
+            case 'price_desc':
+                $query->orderBy('price', 'desc');
+                break;
+            case 'price_asc':
+                $query->orderBy('price', 'asc');
+                break;
+        }
+
+        $products = $query->paginate(6)->appends($request->all());
+        return view('index', compact('products', 'keyword', 'sort'));
     }
 
     public function show($productId)

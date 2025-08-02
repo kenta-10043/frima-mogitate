@@ -4,7 +4,15 @@
 @endsection
 
 @section('content')
-    <form action="{{ route('products.update', ['productId' => $product->id]) }}" method="post" enctype="multipart/form-data">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="breadcrumb-item__link" href="{{ route('index') }}">一覧</a></li> &gt;
+            <li class="breadcrumb-item active" aria-current="page">{{ $product->name }}</li>
+        </ol>
+    </nav>
+
+    <form action="{{ route('products.update', ['productId' => $product->id]) }}" method="post"
+        enctype="multipart/form-data">
         @method('put')
         @csrf
 

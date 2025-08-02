@@ -10,11 +10,39 @@
             onclick="location.href='{{ route('products.register') }}'">＋商品を追加</button>
     </div>
     <div class="main__contents">
-        <aside>
+        <aside class="sidebar">
             <form action="{{ route('products.search') }}" method="get">
                 <input type="text" name="keyword" value="{{ $keyword ?? '' }}" placeholder="商品名で検索">
                 <button type="submit">検索</button>
+
+                <h4>価格帯で表示</h4>
+                <select class="search__reorder" name="sort">
+                    <option value="">価格で並び替え</option>
+                    <option value="price_desc" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>高い順に表示</option>
+                    <option value="price_asc" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>低い順に表示</option>
+                </select>
             </form>
+
+            <div class="search__reorder__tag">
+                @isset($sort)
+                    @if ($sort)
+                        <p>
+                            @switch($sort)
+                                @case('price_desc')
+                                    高い順に表示
+                                @break
+
+                                @case('price_asc')
+                                    安い順に表示
+                                @break
+                            @endswitch
+                        </p>
+                        <button class="search__reorder__button" type="button"
+                            onclick="location.href='{{ route('index') }}'">×</button>
+
+                </div>
+                @endif
+            @endisset
         </aside>
 
         <div class="products__card">

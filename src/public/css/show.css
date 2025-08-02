@@ -28,3 +28,11 @@
     background: none;
     padding: 0;
 }
+
+.breadcrumb{
+    display: flex;
+}
+
+.breadcrumb-item__link{
+    text-decoration: none;
+}
