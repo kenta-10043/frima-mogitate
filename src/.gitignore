@@ -1,38 +1,57 @@
-# Laravel
+# -----------------------------
+# Laravel に関する除外
+# -----------------------------
 /vendor
 /node_modules
 /public/hot
 /public/storage
-/storage/*.key
-/storage/*.pem
-/storage/app/public/*
-!/storage/app/public/products/
-!/storage/app/public/products/**
-/storage/framework/cache/*
-/storage/framework/sessions/*
-/storage/framework/views/*
-/storage/logs/*
-.env
-.env.*  # .env.local なども含む
 
-# Docker（MySQLなど機密データ）
+# Laravel storage 内（ただし icons, products は含める）
+/src/storage/*.key
+/src/storage/*.pem
+/src/storage/app/public/*
+!/src/storage/app/public/.gitignore
+!/src/storage/app/public/products/
+!/src/storage/app/public/products/**
+!/src/storage/app/public/icons/
+!/src/storage/app/public/icons/**
+/src/storage/framework/cache/*
+/src/storage/framework/sessions/*
+/src/storage/framework/views/*
+/src/storage/logs/*
+
+# .envファイル
+.env
+.env.*  # 例: .env.local など
+
+# -----------------------------
+# Docker関連ファイル
+# -----------------------------
 docker/mysql/data/
 docker/mysql/*.pem
+
+# -----------------------------
+# セキュリティ関連（秘密鍵など）
+# -----------------------------
 *.pem
 *.key
 
-# Composer
+# -----------------------------
+# Composer & NPM/Yarn
+# -----------------------------
 composer.lock
-
-# NPM/Yarn
 package-lock.json
 yarn.lock
 
-# IDEs
+# -----------------------------
+# IDE / エディタ用
+# -----------------------------
 .idea/
 .vscode/
 *.swp
 
-# OS
+# -----------------------------
+# OS固有の不要ファイル
+# -----------------------------
 .DS_Store
 Thumbs.db
