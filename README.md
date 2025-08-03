@@ -11,7 +11,7 @@
 
 Laravel 環境構築
 
-1.Docker の設定　(docker-compose exec php bash)  
+1.PHPコンテナへの移動　(docker-compose exec php bash)  
 2.Laravel のパッケージのインストール　(composer install)  
 3.env.example ファイルから.env を作成し、環境変数を変更　(cp .env.example .env)  
  |設定項目|変更前|変更後|  
