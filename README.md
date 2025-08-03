@@ -26,7 +26,7 @@ Laravel 環境構築
 
 ## ER 図
 
-![ER.png](ER.png)
+![ER-mogotate.png](ER-mogotate.png)
 
 ## URL
 
