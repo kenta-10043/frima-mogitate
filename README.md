@@ -11,12 +11,19 @@
 
 Laravel 環境構築
 
-1.docker-compose exec php bash  
-2.composer install  
-3.env.example ファイルから.env を作成し、環境変数を変更  
-4.php artisan key:generate  
-5.php artisan migrate  
-6.php artisan db:seed
+1.Docker の設定　(docker-compose exec php bash)  
+2.Laravel のパッケージのインストール　(composer install)  
+3.env.example ファイルから.env を作成し、環境変数を変更　(cp .env.example .env)  
+ |設定項目|変更前|変更後|  
+ |---|---|---|  
+ |DB_HOST|127.0.0.1|mysql|  
+ |DB_DATABASE|laravel|laravel_db|  
+ |DB_USERNAME|root|laravel_user|  
+ |DB_PASSWORD|ー|laravel_pass| 
+ 
+4.アプリケーションキーの作成　(php artisan key:generate)  
+5.マイグレーションの実行　(php artisan migrate)  
+6.シーディングの実行　(php artisan db:seed)
 
 ## 使用技術
 
