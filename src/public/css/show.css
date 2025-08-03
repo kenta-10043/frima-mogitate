@@ -1,3 +1,12 @@
+.products__main{
+    display: flex;
+    justify-content: center;
+}
+
+.products__contents{
+    margin-left: 100px;
+}
+
 .products__card__image {
     width: 374px;
     height: 350px;

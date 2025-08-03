@@ -84,6 +84,9 @@ class ProductController extends Controller
         }
         $product->update($data);
 
+        $seasonIds = $request->input('seasons', []);
+        $product->seasons()->sync($seasonIds);
+
         return redirect(route('index'));
     }
     public function destroy(Request $request, $productId)
