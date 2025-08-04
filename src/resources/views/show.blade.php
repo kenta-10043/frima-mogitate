@@ -30,19 +30,17 @@
                 @enderror
         </div>
 
-
         <div class="products__contents">
-            <div>
+            <div class="products__name">
                 <label for="name">商品名</label><br>
                 <input type="text" name="name" id="name" value="{{ $product->name }}" placeholder="商品名を入力">
             </div>
-
 
             @error('name')
                 <div class="error-alert">{{ $message }}</div>
             @enderror
 
-            <div>
+            <div class="products__price">
                 <label for="price">値段</label><br>
                 <input type="text" name="price" id="price" value="{{ $product->price }}" placeholder="値段を入力">
             </div>
@@ -51,7 +49,7 @@
                 <div class="error-alert">{{ $message }}</div>
             @enderror
 
-            <div>
+            <div class="products__season">
                 <label for="season">季節</label><br>
                 @foreach ($allSeasons as $season)
                     <input id="season" type="checkbox" name="seasons[]"
@@ -60,33 +58,34 @@
                 @endforeach
             </div>
 
-
-
             @error('seasons')
                 <div class="error-alert">{{ $message }}</div>
             @enderror
         </div>
     </div>
 
-    <div>
+    <div class="products__description">
         <label for="description">商品説明</label><br>
-        <textarea id="description" name="description" cols="30" rows="10" placeholder="商品の説明を入力">{{ $product->description }}</textarea>
+        <textarea class="products__description__inner" id="description" name="description" cols="30" rows="10"
+            placeholder="商品の説明を入力">{{ $product->description }}</textarea>
     </div>
 
     @error('description')
         <div class="error-alert">{{ $message }}</div>
     @enderror
 
-    <div>
-        <button type="button" onclick="location.href='{{ route('index') }}'">戻る</button>
-        <button type="submit">変更を保存</button>
-    </div>
-    </form>
+    <div class="submit__button">
+        <div class="submit__button__inner">
+            <button class='submit__button__back' type="button" onclick="location.href='{{ route('index') }}'">戻る</button>
+            <button Class='submit__button__update' type="submit">変更を保存</button>
+        </div>
+        </form>
 
-    <form action="{{ route('products.destroy', ['productId' => $product->id]) }}" method="post">
-        @method('delete')
-        @csrf
-        <button class="product__card__delete" type="submit"><img src="{{ asset('storage/icons/Frame 406.png') }}"
-                alt="ゴミ箱"></button>
-    </form>
+        <form action="{{ route('products.destroy', ['productId' => $product->id]) }}" method="post">
+            @method('delete')
+            @csrf
+            <button class="product__card__delete" type="submit"><img src="{{ asset('storage/icons/Frame 406.png') }}"
+                    alt="ゴミ箱"></button>
+        </form>
+    </div>
 @endsection

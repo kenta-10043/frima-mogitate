@@ -1,3 +1,51 @@
 .error-alert{
     color: red;
 }
+
+.from__input__require{
+    border: 1px solid red;
+    background-color: red;
+    color: white;
+    margin-left: 20px;
+}
+
+.product__contents__tittle{
+    margin-bottom: 30px;
+}
+
+.choice{
+    margin-left: 20px;
+    color: red;
+}
+
+.form__input{
+    margin-top: 30px;
+}
+
+.product__contents{
+    margin-left: 500px;
+}
+.form__input__name, .form__input__price{
+    width: 600px;
+}
+
+.form__input__description{
+    width: 600px;
+    height: 200px;
+}
+
+.submit__button__register{
+    background-color: #F5C800;
+    border: none;
+    margin-top: 30px;
+    margin-right: 30px;
+    width: 150px;
+    border-radius: 5px;
+}
+
+.submit__button__back{
+    border: none;
+    margin-left: 50px;
+    width: 150px;
+    border-radius: 5px;
+}

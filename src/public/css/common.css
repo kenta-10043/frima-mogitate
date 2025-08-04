@@ -2,4 +2,31 @@ body{
     background-color: #f8f8f8;
 }
 
+.tittle{
+    color: #F5C800;
+    font-weight: 500;
+    font-style: Italic;
+    font-size: 30px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
 
+.pagination .page-item .page-link {
+
+    color: black;
+    border-radius: 50px;
+    border: none;
+    margin: 0 3px;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #F5C800;
+    color: white;
+    border-color: #F5C800;
+}
+
+.pagination .page-item.disabled .page-link {
+
+    color: #6c757d;
+    border: none;
+}

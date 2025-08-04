@@ -12,8 +12,8 @@
     <div class="main__contents">
         <aside class="sidebar">
             <form action="{{ route('products.search') }}" method="get">
-                <input type="text" name="keyword" value="{{ $keyword ?? '' }}" placeholder="商品名で検索">
-                <button type="submit">検索</button>
+                <input class="search" type="text" name="keyword" value="{{ $keyword ?? '' }}" placeholder="商品名で検索">
+                <button class="search__button" type="submit">検索</button>
 
                 <h4>価格帯で表示</h4>
                 <select class="search__reorder" name="sort">
@@ -26,7 +26,7 @@
             <div class="search__reorder__tag">
                 @isset($sort)
                     @if ($sort)
-                        <p>
+                        <p class="tag__item">
                             @switch($sort)
                                 @case('price_desc')
                                     高い順に表示
@@ -36,10 +36,10 @@
                                     安い順に表示
                                 @break
                             @endswitch
-                        </p>
-                        <button class="search__reorder__button" type="button"
-                            onclick="location.href='{{ route('index') }}'">×</button>
 
+                            <button class="search__reorder__button" type="button"
+                                onclick="location.href='{{ route('index') }}'">×</button>
+                        </p>
                 </div>
                 @endif
             @endisset
