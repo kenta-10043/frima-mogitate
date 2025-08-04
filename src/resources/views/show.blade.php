@@ -33,7 +33,8 @@
         <div class="products__contents">
             <div class="products__name">
                 <label for="name">商品名</label><br>
-                <input type="text" name="name" id="name" value="{{ $product->name }}" placeholder="商品名を入力">
+                <input type="text" name="name" id="name" value="{{ old('name', $product->name) }}"
+                    placeholder="商品名を入力">
             </div>
 
             @error('name')
@@ -42,7 +43,8 @@
 
             <div class="products__price">
                 <label for="price">値段</label><br>
-                <input type="text" name="price" id="price" value="{{ $product->price }}" placeholder="値段を入力">
+                <input type="text" name="price" id="price" value="{{ old('price', $product->price) }}"
+                    placeholder="値段を入力">
             </div>
 
             @error('price')
@@ -53,7 +55,7 @@
                 <label for="season">季節</label><br>
                 @foreach ($allSeasons as $season)
                     <input id="season" type="checkbox" name="seasons[]"
-                        value="{{ $season->id }}"{{ $product->seasons->contains($season->id) ? 'checked' : '' }}>
+                        value="{{ $season->id }}"{{ (is_array(old('seasons')) && in_array($season->id, old('seasons'))) || (!old('seasons') && $product->seasons->contains($season->id)) ? 'checked' : '' }}>
                     {{ $season->name }}
                 @endforeach
             </div>
@@ -67,7 +69,7 @@
     <div class="products__description">
         <label for="description">商品説明</label><br>
         <textarea class="products__description__inner" id="description" name="description" cols="30" rows="10"
-            placeholder="商品の説明を入力">{{ $product->description }}</textarea>
+            placeholder="商品の説明を入力">{{ old('description', $product->description) }}</textarea>
     </div>
 
     @error('description')
