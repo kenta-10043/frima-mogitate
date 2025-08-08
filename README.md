@@ -26,7 +26,7 @@ Laravel 環境構築
 6.シーディングの実行　(php artisan db:seed)  
 7.画像ファイルのシンボリックリンク　(php artisan storage:link)
 
-##アプリの URL について
+## アプリの URL について
 
 - アプリのベース URL（APP_URL）： http://localhost
 - トップページ URL（商品一覧）： http://localhost/products
@@ -39,7 +39,7 @@ Laravel 環境構築
 
 ## ER 図
 
-![ER-mogotate.png](ER-mogotate.png)
+![ER-ver2.png](ER-ver2.png)
 
 ## URL
 
