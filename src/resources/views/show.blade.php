@@ -14,7 +14,7 @@
     <div class="products__main">
         <div>
             <form action="{{ route('products.update', ['productId' => $product->id]) }}" method="post"
-                enctype="multipart/form-data">
+                enctype="multipart/form-data" novalidate>
                 @method('put')
                 @csrf
 

@@ -42,7 +42,7 @@ class ProductRequest extends FormRequest
             'description.required' => '商品説明を入力してください',
             'description.max' => '120文字以内で入力してください',
             'image.required' => '商品画像を登録してください',
-            'image.mimes:png,jpeg' => '「.png」または「.jpeg」形式でアップロードしてください'
+            'image.mimes' => '「.png」または「.jpeg」形式でアップロードしてください'
         ];
     }
 }

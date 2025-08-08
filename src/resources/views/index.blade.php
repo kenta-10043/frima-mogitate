@@ -33,7 +33,7 @@
                                 @break
 
                                 @case('price_asc')
-                                    安い順に表示
+                                    低い順に表示
                                 @break
                             @endswitch
 

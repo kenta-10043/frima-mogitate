@@ -8,7 +8,7 @@
         <div class="product__contents">
             <h2 class="product__contents__tittle">商品登録</h2>
 
-            <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data" novalidate >
                 @csrf
 
                 <div class="form__input">
